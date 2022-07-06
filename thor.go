@@ -2,6 +2,9 @@ package thor
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"strconv"
 
 	"github.com/joho/godotenv"
 )
@@ -10,9 +13,12 @@ const version = "0.0.1"
 
 // Thor package struct
 type Thor struct {
-	AppName string
-	IsDebug bool
-	Version string
+	AppName  string
+	IsDebug  bool
+	Version  string
+	ErrorLog *log.Logger
+	InforLog *log.Logger
+	RootPath string
 }
 
 func (t *Thor) New(rootPath string) error {
@@ -33,10 +39,19 @@ func (t *Thor) New(rootPath string) error {
 		return err
 	}
 
+	// .env
 	err = godotenv.Load(rootPath + "/.env")
 	if err != nil {
 		return err
 	}
+
+	// loggers
+	infoLog, errorLog := t.startLoggers()
+	t.InforLog = infoLog
+	t.ErrorLog = errorLog
+
+	t.IsDebug, _ = strconv.ParseBool(os.Getenv("DEBUG"))
+	t.Version = version
 
 	return nil
 }
@@ -61,4 +76,11 @@ func (t *Thor) checkDotEnv(path string) error {
 	}
 
 	return nil
+}
+
+func (t *Thor) startLoggers() (infoLog *log.Logger, errorLog *log.Logger) {
+	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
+
+	return
 }
