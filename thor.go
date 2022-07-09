@@ -100,7 +100,7 @@ func (t *Thor) ListenAndServe() {
 	srv := http.Server{
 		Addr:         fmt.Sprintf(":%s", os.Getenv("PORT")),
 		ErrorLog:     t.ErrorLog,
-		Handler:      t.routes(),
+		Handler:      t.Routes,
 		IdleTimeout:  30 * time.Second,
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 600 * time.Second,
