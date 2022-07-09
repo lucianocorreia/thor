@@ -10,6 +10,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/joho/godotenv"
+	"github.com/lucianocorreia/thor/render"
 )
 
 const version = "0.0.1"
@@ -23,6 +24,7 @@ type Thor struct {
 	InforLog *log.Logger
 	RootPath string
 	Routes   *chi.Mux
+	Render   *render.Render
 
 	config config
 }
@@ -71,8 +73,11 @@ func (t *Thor) New(rootPath string) error {
 		renderer: os.Getenv("RENDERER"),
 	}
 
-	//routes
+	// routes
 	t.Routes = t.routes().(*chi.Mux)
+
+	// render
+	t.Render = t.createRender(t)
 
 	return nil
 }
@@ -122,4 +127,14 @@ func (t *Thor) startLoggers() (infoLog *log.Logger, errorLog *log.Logger) {
 	errorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	return
+}
+
+func (t *Thor) createRender(thor *Thor) *render.Render {
+	render := render.Render{
+		Renderer: thor.config.renderer,
+		RootPath: thor.RootPath,
+		Port:     thor.config.port,
+	}
+
+	return &render
 }
