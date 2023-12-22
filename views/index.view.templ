@@ -1,0 +1,13 @@
+package views
+
+import "github.com/lucianocorreia/go-fullstack/views/layouts"
+
+type IndexViewProps struct {
+	Title string
+}
+
+templ IndexView(props IndexViewProps) {
+	@layouts.Base(props.Title) {
+		<h1>Index { props.Title }</h1>
+	}
+}
