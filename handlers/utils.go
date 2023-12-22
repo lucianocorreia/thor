@@ -16,6 +16,7 @@ func getAppData(c echo.Context, title string) models.App {
 	return models.App{
 		Title:           title,
 		IsAuthenticated: false,
+		RoutePath:       c.Path(),
 	}
 
 }

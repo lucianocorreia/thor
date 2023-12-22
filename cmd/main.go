@@ -11,6 +11,7 @@ func main() {
 	h := handlers.Handler{}
 
 	app.GET("/", h.HandleIndex)
+
 	app.Static("/static", "static")
 
 	app.Logger.Info("Starting server on port 3000")

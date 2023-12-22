@@ -4,4 +4,5 @@ package models
 type App struct {
 	Title           string
 	IsAuthenticated bool
+	RoutePath       string
 }

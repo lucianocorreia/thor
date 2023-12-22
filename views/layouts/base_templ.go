@@ -63,11 +63,11 @@ func Base(app models.App) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = shared.Navbar().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = shared.Navbar(app).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container w-full pt-4 mx-auto\"><div class=\"w-full px-4 mb-16 leading-normal text-gray-100 md:px-0 md:mt-8\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"container w-full mx-auto\"><div class=\"w-full px-4 mb-16 leading-normal text-gray-100 md:px-0 md:mt-4\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

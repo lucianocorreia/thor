@@ -9,5 +9,6 @@ func (h *Handler) HandleIndex(c echo.Context) error {
 	props := views.IndexViewProps{
 		App: getAppData(c, "Index"),
 	}
+
 	return render(c, views.IndexView(props))
 }
