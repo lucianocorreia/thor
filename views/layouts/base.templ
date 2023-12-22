@@ -3,13 +3,14 @@ package layouts
 import "math/rand"
 import "fmt"
 import "github.com/lucianocorreia/go-fullstack/views/shared"
+import "github.com/lucianocorreia/go-fullstack/models"
 
 func getCssLink() string {
 	randomInt := rand.Intn(9999)
 	return fmt.Sprintf("/static/css/style.css?cache=%d", randomInt)
 }
 
-templ Base(title string) {
+templ Base(app models.App) {
 	<html>
 		<head>
 			<meta charset="UTF-8"/>
@@ -17,12 +18,17 @@ templ Base(title string) {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			<link rel="stylesheet" href={ getCssLink() }/>
 			<link rel="icon" type="image/png" href="/static/favicon.png"/>
-			<title>{ title }</title>
+			<title>{ app.Title }</title>
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
 			<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		</head>
-		<body class="bg-black-alt font-sans leading-normal tracking-normal">
+		<body class="font-sans leading-normal tracking-normal bg-gray-800">
 			@shared.Navbar()
-			{ children... }
+			<div class="container w-full pt-4 mx-auto">
+				<div class="w-full px-4 mb-16 leading-normal text-gray-100 md:px-0 md:mt-8">
+					{ children... }
+				</div>
+			</div>
 		</body>
 	</html>
 }

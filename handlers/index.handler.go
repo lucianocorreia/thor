@@ -7,7 +7,7 @@ import (
 
 func (h *Handler) HandleIndex(c echo.Context) error {
 	props := views.IndexViewProps{
-		Title: "Painel de Controle",
+		App: getAppData(c, "Index"),
 	}
 	return render(c, views.IndexView(props))
 }
