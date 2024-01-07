@@ -2,8 +2,8 @@ PACKAGES := $(shell go list ./...)
 name := $(shell basename ${PWD})
 
 ## start: build and run local project
-.PHONY: start
-start:
+.PHONY: run
+run:
 	air
 
 ## test: run unit tests
@@ -14,9 +14,10 @@ test:
 ## css: build tailwindcss
 .PHONY: css
 css:
-	./tailwindcss -i css/style.css -o static/css/style.css --minify
+	npx tailwindcss -i css/style.css -o static/css/style.css --minify
 
 ## css-watch: watch build tailwindcss
 .PHONY: css-watch
 css-watch:
-	./tailwindcss -i css/style.css -o static/css/style.css --watch
+	npx tailwindcss -i css/style.css -o static/css/style.css --watch
+
