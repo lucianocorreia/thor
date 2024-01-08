@@ -1,7 +1,17 @@
 package handlers
 
-import "github.com/labstack/echo/v4"
+import (
+	"github.com/labstack/echo/v4"
+	"github.com/lucianocorreia/go-fullstack/views/auth"
+)
 
 func (h *Handler) HandleLogin(c echo.Context) error {
 	return nil
+}
+
+func (h *Handler) HandleRegister(c echo.Context) error {
+	props := auth.RegisterViewProps{
+		App: getAppData(c, "Criar Conta"),
+	}
+	return render(c, auth.RegisterView(props))
 }

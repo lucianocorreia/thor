@@ -12,6 +12,9 @@ func main() {
 
 	app.GET("/", h.HandleIndex)
 
+	// Auth routes
+	app.GET("/register", h.HandleRegister)
+
 	app.Static("/static", "static")
 
 	app.Logger.Info("Starting server on port 3000")
