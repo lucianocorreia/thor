@@ -8,7 +8,7 @@ type RegisterViewProps struct {
 }
 
 templ RegisterView(props RegisterViewProps) {
-	@layouts.Base(props.App) {
+	@layouts.Auth("Criar Conta") {
 		<h1>Register</h1>
 	}
 }
