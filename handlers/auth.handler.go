@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/lucianocorreia/go-fullstack/views/auth"
+	"github.com/lucianocorreia/thor/views/auth"
 )
 
 func (h *Handler) HandleLogin(c echo.Context) error {

@@ -12,8 +12,8 @@ import "bytes"
 
 import "math/rand"
 import "fmt"
-import "github.com/lucianocorreia/go-fullstack/views/shared"
-import "github.com/lucianocorreia/go-fullstack/models"
+import "github.com/lucianocorreia/thor/views/shared"
+import "github.com/lucianocorreia/thor/models"
 
 func getCssLink() string {
 	randomInt := rand.Intn(9999)

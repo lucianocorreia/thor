@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/labstack/echo/v4"
-	auth "github.com/lucianocorreia/go-fullstack/views"
+	auth "github.com/lucianocorreia/thor/views"
 )
 
 // HandleIndex handles the index route

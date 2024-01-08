@@ -10,8 +10,8 @@ import "context"
 import "io"
 import "bytes"
 
-import "github.com/lucianocorreia/go-fullstack/models"
-import "github.com/lucianocorreia/go-fullstack/views/shared/components"
+import "github.com/lucianocorreia/thor/models"
+import "github.com/lucianocorreia/thor/views/shared/components"
 
 func Navbar(app models.App) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {

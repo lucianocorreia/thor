@@ -3,7 +3,7 @@ package handlers
 import (
 	"github.com/a-h/templ"
 	"github.com/labstack/echo/v4"
-	"github.com/lucianocorreia/go-fullstack/models"
+	"github.com/lucianocorreia/thor/models"
 )
 
 // render is a helper function to render a component.

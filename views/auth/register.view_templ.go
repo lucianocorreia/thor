@@ -10,8 +10,8 @@ import "context"
 import "io"
 import "bytes"
 
-import "github.com/lucianocorreia/go-fullstack/models"
-import "github.com/lucianocorreia/go-fullstack/views/layouts"
+import "github.com/lucianocorreia/thor/models"
+import "github.com/lucianocorreia/thor/views/layouts"
 
 type RegisterViewProps struct {
 	App models.App

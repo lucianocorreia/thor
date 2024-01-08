@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/labstack/echo/v4"
-	"github.com/lucianocorreia/go-fullstack/handlers"
+	"github.com/lucianocorreia/thor/handlers"
 )
 
 func main() {

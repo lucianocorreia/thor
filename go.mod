@@ -1,4 +1,4 @@
-module github.com/lucianocorreia/go-fullstack
+module github.com/lucianocorreia/thor
 
 go 1.21.5
 
